@@ -19,10 +19,7 @@ class EmailParser
     elsif @emails.include?(",")
       @emails.split(", ")
     else
-      puts "else"
-      email = @emails.split(" ")
-      puts "##{email}"
-      email
+      emails_arr = @emails.split(" ")
     end
     emails_arr = emails_arr.uniq
     emails_arr
