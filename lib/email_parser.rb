@@ -6,12 +6,26 @@ class EmailParser
 
   attr_accessor :emails
 
-  def initialize(string)
-    @emails = string
+  def initialize(emails)
+    @emails = emails
   end
 
-  def self.parse
-    @emails = self.split(", ")
+  def parse
+    emails_arr = []
+    puts "@emails: #{@emails}"
+    if @emails.include?(",") && @emails.include?(" ")
+      emails_arr = emails.split(/[,\s]/)
+      emails_arr.delete_if { |email| email == "" }
+    elsif @emails.include?(",")
+      @emails.split(", ")
+    else
+      puts "else"
+      email = @emails.split(" ")
+      puts "##{email}"
+      email
+    end
+    emails_arr = emails_arr.uniq
+    emails_arr
   end
 
 end
