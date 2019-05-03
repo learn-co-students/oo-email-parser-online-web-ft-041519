@@ -1,4 +1,5 @@
 require "pry"
+
 class EmailParser
   
   attr_accessor :emails
@@ -8,20 +9,11 @@ class EmailParser
   end
    
   def parse 
-   
+    binding.pry
     emails.split.collect do |e| 
-      
-     # binding.pry
+      #binding.pry   
       e.split(',').join("")
-    end.uniq
+    end.uniq  #runs .uniq on the return value last line of code of the line above.
   end
 end 
-  
-
-
-
-# Build a class EmailParser that accepts a string of unformatted 
-# emails. The parse method on the class should separate them into
-# unique email addresses. The delimiters to support are commas (',')
-# or whitespace (' ').
 
